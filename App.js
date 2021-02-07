@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import {TestApi} from "./src/testApi.js";
+import { PublicResource } from "./src/component/publicResources";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <TestApi></TestApi>
+      <PublicResource></PublicResource>
       <StatusBar style="auto" />
     </View>
   );

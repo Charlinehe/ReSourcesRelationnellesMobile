@@ -1,8 +1,9 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import { PUBLIC_RESOURCES } from "../api.js"
+import Card from './card';
 
-export class TestApi extends React.Component {
+export class PublicResource extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -40,11 +41,15 @@ export class TestApi extends React.Component {
     } else {
       return (
         <View>
+          <ScrollView>
           {resources.map(item => (
-            <Text>
-              {item.id} {item.title}
-            </Text>
+            <Card>
+              <Text key={item.id}>
+                {item.title}
+              </Text>
+            </Card>
           ))}
+          </ScrollView>
         </View>
       )
     }
