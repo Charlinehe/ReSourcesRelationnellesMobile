@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { PublicResource } from "./src/component/publicResources";
+import {PublicResource} from "./src/component/publicResources";
 
 export default function App() {
   return (
