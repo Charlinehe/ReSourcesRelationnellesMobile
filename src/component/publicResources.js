@@ -4,6 +4,11 @@ import { PUBLIC_RESOURCES } from "../api"
 import Card from './card';
 import CardComponent from './cardComponent'
 
+
+const headers = new Headers();
+headers.append('Access-Control-Allow-Origin', 'http://192.168.0.46:3005');
+headers.append('Access-Control-Allow-Credentials', 'true');
+
 export class PublicResource extends React.Component {
   constructor(props) {
     super(props);
@@ -15,7 +20,7 @@ export class PublicResource extends React.Component {
   }
 
   componentDidMount() {
-    fetch(PUBLIC_RESOURCES)
+    fetch(PUBLIC_RESOURCES, headers)
       .then(res => res.json())
       .then(
         (data) => {
@@ -45,9 +50,7 @@ export class PublicResource extends React.Component {
         <View>
           <ScrollView>
           {resources.map(item => (
-            <Card key={item.id}>
-              <CardComponent title={item.title} description={item.description}/>
-            </Card>
+            <Card key={item.id} title={item.title} description={item.description}/>
           ))}
           </ScrollView>
         </View>
