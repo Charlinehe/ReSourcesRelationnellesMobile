@@ -1,14 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import {PublicResource} from "./src/component/publicResources";
+import Navigator from "./src/routes/homeStack";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <PublicResource></PublicResource>
-      <StatusBar style="auto" />
-    </View>
+      <Navigator>
+        <StatusBar barStyle="light-content"/> {/* TODO : Vérifier en avec et sans dark mode */}
+      </Navigator>
   );
 }
 

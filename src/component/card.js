@@ -14,7 +14,7 @@ export default function Card(props) {
                     style={cardStyles.cardImg}
                     source={require('../../assets/adaptive-icon.png')}
                 />
-                <View >
+                <View style={ cardStyles.cardDetail }>
                     <View style={cardStyles.row}>
                         <Text style={cardStyles.title}>{((props.title).length > maxTitleChar) ? ((props.title).substr(0, maxTitleChar - 3) + "...").toUpperCase() : props.title.toUpperCase()}</Text>
                         <FontAwesome name="heart" size={20} color="red" />
@@ -36,7 +36,7 @@ const cardStyles = StyleSheet.create ({
         marginHorizontal: 6,
         marginVertical: 8,
         height: 125,
-        width: windowWidth - 20,
+        width: windowWidth - 12,
         justifyContent: 'center'
     },
     title: {
@@ -45,6 +45,9 @@ const cardStyles = StyleSheet.create ({
     },
     cardComponent: {
         flexDirection: 'row',
+    },
+    cardDetail: {
+        paddingHorizontal: 3,
     },
     cardImg: {
         width: 100,

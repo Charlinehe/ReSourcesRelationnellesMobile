@@ -1,9 +1,9 @@
 import React from 'react';
-import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
+import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { PUBLIC_RESOURCES } from "../api"
-import Card from './card';
+import Card from '../component/card';
 
-export class PublicResource extends React.Component {
+export class HomeView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -41,7 +41,7 @@ export class PublicResource extends React.Component {
 
     } else {
       return (
-        <View>
+        <View style={ cardStyles.body }>
           <ScrollView>
           {resources.map(item => (
             <Card key={item.id} title={item.title} description={item.description}/>
@@ -52,3 +52,9 @@ export class PublicResource extends React.Component {
     }
   }
 }
+
+const cardStyles = StyleSheet.create ({
+  body: {
+    backgroundColor: '#0253a3',
+  },
+})
