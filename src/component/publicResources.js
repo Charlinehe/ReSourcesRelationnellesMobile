@@ -2,12 +2,6 @@ import React from 'react';
 import { ActivityIndicator, ScrollView, Text, View } from 'react-native';
 import { PUBLIC_RESOURCES } from "../api"
 import Card from './card';
-import CardComponent from './cardComponent'
-
-
-const headers = new Headers();
-headers.append('Access-Control-Allow-Origin', 'http://192.168.0.46:3005');
-headers.append('Access-Control-Allow-Credentials', 'true');
 
 export class PublicResource extends React.Component {
   constructor(props) {
@@ -20,7 +14,7 @@ export class PublicResource extends React.Component {
   }
 
   componentDidMount() {
-    fetch(PUBLIC_RESOURCES, headers)
+    fetch(PUBLIC_RESOURCES)
       .then(res => res.json())
       .then(
         (data) => {
