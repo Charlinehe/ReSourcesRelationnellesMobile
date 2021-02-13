@@ -54,8 +54,9 @@ const cardStyles = StyleSheet.create ({
         height: 100,
     },
     content: {
+        paddingTop: 10,
         marginRight: 100,
-        textAlign: 'justify'
+        textAlign: 'left'
     },
     row: {
         width: windowWidth - 130,

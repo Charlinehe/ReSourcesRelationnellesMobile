@@ -1,7 +1,9 @@
 import React from 'react';
-import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, StyleSheet, Text, View } from 'react-native';
+import { color } from 'react-native-reanimated';
 import { PUBLIC_RESOURCES } from "../api"
 import Card from '../component/card';
+import Search from '../component/searchbar'
 
 export class HomeView extends React.Component {
   constructor(props) {
@@ -9,7 +11,8 @@ export class HomeView extends React.Component {
     this.state = {
       error: null,
       isLoaded: false,
-      resources: []
+      resources: [],
+      searchValue: null
     };
   }
 
@@ -38,23 +41,30 @@ export class HomeView extends React.Component {
       return <Text>Erreur : {error.message}</Text>;
     } else if (!isLoaded) {
       return <ActivityIndicator size="large" color="#0000ff" />
-
     } else {
       return (
-        <View style={ cardStyles.body }>
-          <ScrollView>
-          {resources.map(item => (
-            <Card key={item.id} title={item.title} description={item.description}/>
-          ))}
-          </ScrollView>
+        <View style={styles.body}>
+          <Search value={this.state.searchValue} onChangeText={(val) => this.setState({ searchValue: val})} />
+          <FlatList
+            data={resources}
+            renderItem={({ item }) => (
+              <Card key={item.id} title={item.title} description={item.description} />
+            )}
+          />
         </View>
       )
     }
   }
 }
 
-const cardStyles = StyleSheet.create ({
+const styles = StyleSheet.create({
   body: {
     backgroundColor: '#0253a3',
   },
+  test:{
+    color: 'red',
+    marginVertical: 10,
+    fontSize: 50,
+
+  }
 })

@@ -8,7 +8,9 @@ const screens = {
         navigationOptions: {
             title: '',
             headerStyle: {
-                backgroundColor: '#0253a3'
+                backgroundColor: '#0253a3',
+                elevation: 0,
+                
             }
         }
     },
