@@ -1,23 +1,26 @@
 import React from 'react';
-import { Dimensions, StyleSheet, TextInput, View } from 'react-native';
+import { Pressable, Dimensions, StyleSheet, TextInput, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'
-import { useState } from 'react';
 
 const windowWidth = Dimensions.get('window').width;
 
 export default function SearchBar(props) {
-    
     return (
         <View style={styles.container}>
             <View style={styles.bar}>
-                <FontAwesome name="search" size={30} color="#8492A6" />
+                <Pressable onPress={props.onSubmitEditing}>
+                    <FontAwesome name="search" size={30} color="#8492A6" />
+                </Pressable>
                 <TextInput 
                     style={styles.input} 
                     placeholder='Rechercher...'
                     value={props.value}
                     onChangeText={props.onChangeText}
+                    onSubmitEditing={props.onSubmitEditing}
                     />
-                <FontAwesome name="times" size={30} color="#8492A6" />
+                <Pressable onPress={props.resetValue}>
+                    <FontAwesome name="times" size={30} color="#8492A6" />
+                </Pressable>
             </View>
         </View>
     );
@@ -25,7 +28,7 @@ export default function SearchBar(props) {
 
 const styles = StyleSheet.create({
     container: {
-        height: 200,
+        height: 100,
         justifyContent: 'center',
         alignItems: 'center',
         elevation: 3,

@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
 import Navigator from "./src/routes/homeStack";
+
 
 export default function App() {
   return (
@@ -10,12 +10,3 @@ export default function App() {
       </Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
