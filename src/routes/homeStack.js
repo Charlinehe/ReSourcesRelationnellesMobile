@@ -4,6 +4,17 @@ import { HomeView } from '../view/homeView';
 import { ResourceDetailView } from "../view/resourceDetailView";
 
 const screens = {
+    HomeView: {
+        screen: HomeView,
+        navigationOptions: {
+            title: '',
+            headerStyle: {
+                backgroundColor: '#0253a3',
+                elevation: 0,
+
+            }
+        }
+    },
     ResourceDetail: {
         screen: ResourceDetailView,
         navigationOptions: {
@@ -14,17 +25,6 @@ const screens = {
             headerTitleStyle: {
                 color: 'white',
                 alignSelf: 'center'
-            }
-        }
-    },
-    HomeView: {
-        screen: HomeView,
-        navigationOptions: {
-            title: '',
-            headerStyle: {
-                backgroundColor: '#0253a3',
-                elevation: 0,
-
             }
         }
     },

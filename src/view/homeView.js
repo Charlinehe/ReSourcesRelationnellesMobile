@@ -44,6 +44,10 @@ export class HomeView extends React.Component {
     this.fetchRessources()
   }
 
+  _displayResourceDetail = (idResource) => {
+    this.props.navigation.navigate('ResourceDetail', {id: idResource})
+  }
+
   render() {
     const { error, isLoaded, resources } = this.state;
     if (error) {
@@ -64,7 +68,7 @@ export class HomeView extends React.Component {
             data={resources}
             keyExtractor={item => item.id.toString()}
             renderItem={({ item }) => (
-              <Card title={item.title} description={item.description} />
+              <Card title={item.title} description={item.description} displayResourceDetail={this._displayResourceDetail} id={item.id} />
             )}
           />
         </View>

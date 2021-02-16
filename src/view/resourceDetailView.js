@@ -15,7 +15,7 @@ export class ResourceDetailView extends React.Component {
     }
 
     componentDidMount() {
-        fetch(RESOURCE_DETAIL + '3')
+        fetch(RESOURCE_DETAIL + this.props.navigation.state.params.id)
             .then(res => res.json())
             .then(
                 (data) => {
