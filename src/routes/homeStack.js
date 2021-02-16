@@ -11,7 +11,7 @@ const screens = {
             headerStyle: {
                 backgroundColor: '#0253a3',
                 elevation: 0,
-                
+
             }
         }
     },
