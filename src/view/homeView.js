@@ -1,6 +1,5 @@
 import React from 'react';
 import { ActivityIndicator, Dimensions, FlatList, StyleSheet, Text, View } from 'react-native';
-import { color } from 'react-native-reanimated';
 import { PUBLIC_RESOURCES } from "../api"
 import Card from '../component/card';
 import Search from '../component/searchbar'
@@ -19,7 +18,7 @@ export class HomeView extends React.Component {
   }
 
   onSubmit(value) {
-    this.fetchRessources({headers: {search: value}});
+    value ? this.fetchRessources({headers: {search: value}}) : this.fetchRessources();
   }
 
   fetchRessources(header = {}) {
@@ -63,8 +62,9 @@ export class HomeView extends React.Component {
           <FlatList
             style={styles.flatlist}
             data={resources}
+            keyExtractor={item => item.id.toString()}
             renderItem={({ item }) => (
-              <Card key={item.id} title={item.title} description={item.description} />
+              <Card title={item.title} description={item.description} />
             )}
           />
         </View>
@@ -76,7 +76,7 @@ export class HomeView extends React.Component {
 const styles = StyleSheet.create({
   body: {
     backgroundColor: '#0253a3',
-    height: windowHeight
+    height: windowHeight - 59
   },
   test:{
     color: 'red',

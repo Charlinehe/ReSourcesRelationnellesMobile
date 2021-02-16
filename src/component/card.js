@@ -3,8 +3,7 @@ import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons'
 
 const windowWidth = Dimensions.get('window').width;
-const maxTitleChar = 20;
-const maxDescriptonChar = 150;
+const maxDescriptonChar = 100;
 
 export default function Card(props) {
     return (
@@ -16,7 +15,7 @@ export default function Card(props) {
                 />
                 <View style={ cardStyles.cardDetail }>
                     <View style={cardStyles.row}>
-                        <Text style={cardStyles.title}>{((props.title).length > maxTitleChar) ? ((props.title).substr(0, maxTitleChar - 3) + "...").toUpperCase() : props.title.toUpperCase()}</Text>
+                        <Text style={cardStyles.title}>{props.title.toUpperCase()}</Text>
                         <FontAwesome name="heart" size={20} color="red" />
                     </View>
                     <Text style={cardStyles.content}>{((props.description).length > maxDescriptonChar) ? (props.description).substr(0, maxDescriptonChar - 3) + "..." : props.description}</Text>
@@ -35,19 +34,21 @@ const cardStyles = StyleSheet.create ({
         shadowOffset: { width: 1, height: 1 },
         marginHorizontal: 6,
         marginVertical: 8,
-        height: 125,
+        // height: 125,
         width: windowWidth - 12,
         justifyContent: 'center'
     },
     title: {
         fontSize: 15,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     cardComponent: {
         flexDirection: 'row',
+        alignItems: 'flex-end'
     },
     cardDetail: {
         paddingHorizontal: 3,
+        paddingVertical: 6,
     },
     cardImg: {
         width: 100,
@@ -59,7 +60,7 @@ const cardStyles = StyleSheet.create ({
         textAlign: 'left'
     },
     row: {
-        width: windowWidth - 130,
+        width: windowWidth - 145,
         flexDirection: 'row',
         justifyContent: 'space-between',
     }
