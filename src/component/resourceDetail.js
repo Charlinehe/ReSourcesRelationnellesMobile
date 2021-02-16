@@ -20,10 +20,24 @@ export default function resourceDetail(props) {
     return (
         <View>
             <Text style={styles.resourceDetailTitle}>{props.title}</Text>
-            <Text style={styles.resourceDetailDate}>Le {convertDate(props.date)}</Text>
-            <Text>Auteur : {props.author}</Text>
-            <Text>Catégorie : {props.category}</Text>
-            <Text>Description : {props.description}</Text>
+            <View style={styles.resourceInfoView}>
+                <View>
+                    <Text style={styles.resourceDetailDate}>Le {convertDate(props.date)}</Text>
+                    <Text style={styles.resourceHeaderInfo}>{props.category}</Text>
+                </View>
+                <View>
+                    <Text style={styles.resourceHeaderInfo}>{props.author}</Text>
+                </View>
+            </View>
+            <Text style={styles.resourceDescription}>{props.description}</Text>
+            <View style={styles.resourceInfoView}>
+                <View>
+                </View>
+                <Image
+                    style={styles.resourceImage}
+                    source={require('../../assets/adaptive-icon.png')}
+                />
+            </View>
         </View>
     )
 }

@@ -10,7 +10,23 @@ const styles = StyleSheet.create({
     },
     resourceDetailDate: {
         fontSize: 10,
-        paddingLeft: 5
+        color: '#808080'
+    },
+    resourceInfoView: {
+        padding: 5,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    resourceHeaderInfo: {
+        fontSize: 15
+    },
+    resourceDescription: {
+        padding: 10,
+        color: '#666666'
+    },
+    resourceImage: {
+        width: 80,
+        height: 80
     }
 
 });
