@@ -1,6 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { RESOURCE_DETAIL } from '../api';
+import { RESOURCE_VALUATION } from "../api"
 import ResourceDetail from '../component/resourceDetail';
 
 export class ResourceDetailView extends React.Component {
@@ -10,7 +11,8 @@ export class ResourceDetailView extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
-            resource: []
+            resource: [],
+            valuation: 0
         };
     }
 
@@ -31,10 +33,31 @@ export class ResourceDetailView extends React.Component {
                     });
                 }
             )
+
+        this.getResourceValuation()
+
+    }
+
+    getResourceValuation() {
+        fetch(RESOURCE_VALUATION + this.props.navigation.state.params.id)
+            .then(res => res.json())
+            .then(
+                (data) => {
+                    console.log(data[0].valuation);
+                    this.setState({
+                        valuation: data[0].valuation
+                    })
+                },
+                (error) => {
+                    this.setState({
+                        valuation: 0
+                    })
+                }
+            )
     }
 
     render() {
-        const { error, isLoaded, resource } = this.state;
+        const { error, isLoaded, resource, valuation } = this.state;
         if (error) {
             return <Text>Erreur : {error.message}</Text>;
         } else if (!isLoaded) {
@@ -45,7 +68,7 @@ export class ResourceDetailView extends React.Component {
                     <ScrollView>
                         <ResourceDetail title={resource[0].title} date={resource[0].date_creation}
                                         id={resource[0].id} author={resource[0].username} category={resource[0].category}
-                                        description={resource[0].description}
+                                        description={resource[0].description} valuation={valuation}
                         />
                     </ScrollView>
                 </View>

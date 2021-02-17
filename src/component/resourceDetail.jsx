@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dimensions, Image, Text, View } from 'react-native';
 import styles from '../style';
+import Valuation from "./valuation";
 
 const windowWidth = Dimensions.get('window').width;
 
@@ -18,7 +19,7 @@ function formatNumber(number) {
 
 export default function resourceDetail(props) {
     return (
-        <View>
+        <View style={styles.resourceView} >
             <Text style={styles.resourceDetailTitle}>{props.title}</Text>
             <View style={styles.resourceInfoView}>
                 <View>
@@ -31,7 +32,13 @@ export default function resourceDetail(props) {
             </View>
             <Text style={styles.resourceDescription}>{props.description}</Text>
             <View style={styles.resourceInfoView}>
-                <View>
+                <View style={styles.valuationView}>
+                    <Valuation
+                        starSize = {20}
+                        readOnly = {true}
+                        value = {props.valuation}
+                        fractions = {10}
+                    />
                 </View>
                 <Image
                     style={styles.resourceImage}

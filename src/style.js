@@ -28,6 +28,13 @@ const styles = StyleSheet.create({
     resourceImage: {
         width: 80,
         height: 80
+    },
+    resourceView: {
+        backgroundColor: 'white'
+    },
+    valuationView: {
+        paddingLeft: 20,
+        alignSelf: 'center'
     }
 
 });
