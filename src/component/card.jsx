@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, View, TouchableOpacity, Pressable } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 const windowWidth = Dimensions.get('window').width;
@@ -7,9 +7,16 @@ const maxDescriptonChar = 100;
 
 export default function Card(props) {
     return (
-        <TouchableOpacity
-            style={ cardStyles.card }
-            onPress={() => props.displayResourceDetail(props.id)}>
+        <Pressable
+            //style={ cardStyles.card }
+            onPress={() => props.displayResourceDetail(props.id)}
+            style={({ pressed }) => [
+                {
+                    backgroundColor: pressed ? '#DCDCDC' : 'white'
+                },
+                cardStyles.card,
+            ]}
+            >
             <View style={ cardStyles.cardComponent }>
                 <Image
                     style={cardStyles.cardImg}
@@ -23,14 +30,13 @@ export default function Card(props) {
                     <Text style={cardStyles.content}>{((props.description).length > maxDescriptonChar) ? (props.description).substr(0, maxDescriptonChar - 3) + "..." : props.description}</Text>
                 </View>
             </View>
-        </TouchableOpacity>
+        </Pressable>
     )
 }
 
 const cardStyles = StyleSheet.create ({
     card: {
         borderRadius: 6,
-        backgroundColor: '#FFF',
         elevation: 3,
         shadowOpacity: 0.3,
         shadowOffset: { width: 1, height: 1 },

@@ -19,12 +19,9 @@ const screens = {
         screen: ResourceDetailView,
         navigationOptions: {
             title: 'Ressource',
+            headerTintColor: '#fff',
             headerStyle: {
                 backgroundColor: '#0253a3'
-            },
-            headerTitleStyle: {
-                color: 'white',
-                alignSelf: 'center'
             }
         }
     },

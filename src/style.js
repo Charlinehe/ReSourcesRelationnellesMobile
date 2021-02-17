@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
     },
     resourceDescription: {
         padding: 10,
-        color: '#666666'
+        color: '#666666',
+        fontSize: 17
     },
     resourceImage: {
         width: 80,
