@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { RESOURCE_DETAIL } from '../api';
+import { RESOURCE_DETAIL } from '../settings';
 import ResourceDetail from '../component/resourceDetail';
 
 export class ResourceDetailView extends React.Component {

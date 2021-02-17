@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, Dimensions, FlatList, StyleSheet, Text, View } from 'react-native';
-import { PUBLIC_RESOURCES } from "../api"
+import { PUBLIC_RESOURCES } from "../settings"
 import Card from '../component/card';
 import Search from '../component/searchbar'
 

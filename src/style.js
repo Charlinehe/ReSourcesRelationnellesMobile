@@ -27,8 +27,35 @@ const styles = StyleSheet.create({
     resourceImage: {
         width: 80,
         height: 80
-    }
+    },
 
+    //MENU
+    menuHeader: {
+        height: 250,
+        backgroundColor: '#0253a3',
+        justifyContent: 'center',
+        paddingLeft: '5%',
+    },
+    menuHeaderTitle: {
+        color: 'white',
+        fontSize: 23,
+        fontWeight: 'bold'
+    },
+    menuHeaderSubTitle:{
+        color: 'white',
+        fontSize: 17,
+    },
+    menuFooter: {
+        height: 150,
+        backgroundColor: '#0253a3',
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingHorizontal: '20%'
+    },
+    menuContent: {
+        backgroundColor: '#0253a3',
+    }
 });
 
 export default styles;
