@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import Navigator from "./src/routes/homeStack";
+import Navigator from "./src/routes/menuDrawer";
 
 
 export default function App() {
