@@ -11,12 +11,12 @@ const MenuDrawerNavigator = createDrawerNavigator({
             title: "Accueil"
         }
     },
-    Login: {
-        screen: LoginStack,
-        navigationOptions: {
-            title: "Connexion"
-        }
-    }
+    // Login: {
+    //     screen: LoginStack,
+    //     navigationOptions: {
+    //         title: "Connexion"
+    //     }
+    // }
 }, {
     contentComponent: MenuView,
     drawerWidth: 325,
