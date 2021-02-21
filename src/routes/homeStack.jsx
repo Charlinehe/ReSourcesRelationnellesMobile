@@ -19,6 +19,7 @@ const screens = {
             title: 'Ressource',
             headerTintColor: '#fff',
             headerStyle: {
+                backgroundColor: '#0253a3',
                 elevation: 1
             }
         }

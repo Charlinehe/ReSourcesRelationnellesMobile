@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions, Image, StyleSheet, Text, View, TouchableOpacity, Pressable } from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, View, Pressable } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 const windowWidth = Dimensions.get('window').width;
@@ -8,7 +8,6 @@ const maxDescriptonChar = 100;
 export default function Card(props) {
     return (
         <Pressable
-            //style={ cardStyles.card }
             onPress={() => props.displayResourceDetail(props.id)}
             style={({ pressed }) => [
                 {
