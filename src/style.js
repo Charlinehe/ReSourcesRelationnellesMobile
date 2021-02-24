@@ -33,12 +33,57 @@ const styles = StyleSheet.create({
         width: 80,
         height: 80
     },
-    resourceView: {
+    resourceScrollView: {
         backgroundColor: 'white'
     },
     valuationView: {
         paddingLeft: 20,
         alignSelf: 'center'
+    },
+    commentTitle: {
+        paddingLeft: 5,
+        fontSize: 18
+    },
+    resourceCommentView: {
+        backgroundColor: '#0253a3',
+        margin: 5,
+        padding: 5,
+        borderRadius: 5
+    },
+    resourceCommentHeaderView: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    resourceCommentDate: {
+        color: 'white',
+        fontSize: 9
+    },
+    resourceCommentAuthor: {
+        color: 'white',
+        fontSize: 11
+    },
+    resourceCommentContent: {
+        color: 'white',
+        fontSize: 13,
+        paddingTop: 7,
+        marginBottom: 5
+    },
+    commentAnswerView: {
+        backgroundColor: 'white',
+        marginLeft: 15,
+        marginBottom: 5,
+        padding: 5,
+        borderRadius: 5
+    },
+    commentAnswerDate: {
+        fontSize: 9
+    },
+    commentAnswerAuthor: {
+        fontSize: 11
+    },
+    commentAnswerContent: {
+        fontSize: 13,
+        paddingTop: 7
     },
 
     // MENU
