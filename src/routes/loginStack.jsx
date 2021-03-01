@@ -1,11 +1,10 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack';
-import { LoginView } from '../view/loginView';
+import LoginView from '../view/loginView';
 import { SubscribeView } from '../view/subscribeView';
 import { SubcribeComplementaryView } from '../view/subcribeComplementaryView';
 import { SubcribeFinalView } from '../view/subcribeFinalView';
 import Header from '../component/header';
-
 
 const screens = {
     LoginView: {
