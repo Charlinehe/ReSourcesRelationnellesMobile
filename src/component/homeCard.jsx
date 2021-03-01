@@ -5,7 +5,7 @@ import { FontAwesome } from '@expo/vector-icons';
 const windowWidth = Dimensions.get('window').width;
 const maxDescriptonChar = 100;
 
-export default function Card(props) {
+export default function HomeCard(props) {
     return (
         <Pressable
             onPress={() => props.displayResourceDetail(props.id)}
@@ -19,7 +19,7 @@ export default function Card(props) {
             <View style={ cardStyles.cardComponent }>
                 <Image
                     style={cardStyles.cardImg}
-                    source={require('../../assets/adaptive-icon.png')}
+                    source={require('../../assets/work.png')}
                 />
                 <View style={ cardStyles.cardDetail }>
                     <View style={cardStyles.row}>

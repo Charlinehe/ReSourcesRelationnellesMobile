@@ -31,7 +31,7 @@ export default function resourceDetail(props) {
                 </View>
                 <Image
                     style={styles.resourceImage}
-                    source={require('../../assets/adaptive-icon.png')}
+                    source={require('../../assets/work.png')}
                 />
             </View>
         </View>

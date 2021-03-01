@@ -1,7 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, Dimensions, FlatList, StyleSheet, Text, View } from 'react-native';
 import { PUBLIC_RESOURCES } from "../settings"
-import Card from '../component/card';
+import HomeCard from '../component/homeCard';
 import Search from '../component/searchbar'
 
 const windowHeight = Dimensions.get('window').height;
@@ -68,7 +68,7 @@ export class HomeView extends React.Component {
             data={resources}
             keyExtractor={item => item.id.toString()}
             renderItem={({ item }) => (
-              <Card title={item.title} description={item.description} displayResourceDetail={this._displayResourceDetail} id={item.id} />
+              <HomeCard title={item.title} type={item.relationship_type} description={item.description} displayResourceDetail={this._displayResourceDetail} id={item.id} />
             )}
           />
         </View>

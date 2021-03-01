@@ -183,6 +183,29 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase'
     },
 
+    // USER SPACE
+    userSpaceContainer: {
+        flex: 1
+    },
+    userSpaceHeader: {
+        flex:0.2,
+        justifyContent: 'center',
+        alignItems: 'center', 
+        borderWidth: 0,
+        borderColor: blue,
+        borderBottomLeftRadius: 180,
+        borderBottomRightRadius: 180,
+        backgroundColor: blue
+    },
+    userSpaceUserInfo: {
+        flex: 0.5,
+        margin: '2%'
+    },
+    userSpaceTitle: {
+        fontSize: 20, 
+        fontWeight: 'bold'
+    },
+
     // COMPONENT
     selectContainer: {
         flexDirection: 'column',
