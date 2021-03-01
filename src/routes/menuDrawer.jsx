@@ -2,6 +2,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import HomeStack from './homeStack';
 import LoginStack from './loginStack';
+import UserSpaceStack from './userSpaceStack';
 import MenuView from '../view/menuView';
 
 const MenuDrawerNavigator = createDrawerNavigator({
@@ -15,6 +16,12 @@ const MenuDrawerNavigator = createDrawerNavigator({
         screen: LoginStack,
         navigationOptions: {
             title: "Connexion"
+        }
+    },
+    UserSpace: {
+        screen: UserSpaceStack,
+        navigationOptions: {
+            title: "Espace personnel"
         }
     }
 }, {
