@@ -7,6 +7,7 @@ export const RESOURCE_VALUATION = "http://" + config.IP_ADDRESS + ":" + config.P
 export const RESOURCE_COMMENT = "http://" + config.IP_ADDRESS + ":" + config.PORT + "/api/comment/";
 export const COMMENT_ANSWER = "http://" + config.IP_ADDRESS + ":" + config.PORT + "/api/comment/answer/";
 export const USER_LOGIN = "http://" + config.IP_ADDRESS + ":" + config.PORT + "/api/user/login";
+export const USER_INFO = "http://" + config.IP_ADDRESS + ":" + config.PORT + "/api/user/information";
 
 // Social
 export const FACEBOOK = "https://www.facebook.com/Sante.Gouv/";
