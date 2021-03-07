@@ -15,13 +15,13 @@ export default function HomeCard(props) {
                 },
                 cardStyles.card,
             ]}
-            >
-            <View style={ cardStyles.cardComponent }>
+        >
+            <View style={cardStyles.cardComponent}>
                 <Image
                     style={cardStyles.cardImg}
                     source={require('../../assets/work.png')}
                 />
-                <View style={ cardStyles.cardDetail }>
+                <View style={cardStyles.cardDetail}>
                     <View style={cardStyles.row}>
                         <Text style={cardStyles.title}>{props.title.toUpperCase()}</Text>
                         <FontAwesome name="heart" size={20} color="red" />
@@ -33,7 +33,7 @@ export default function HomeCard(props) {
     )
 }
 
-const cardStyles = StyleSheet.create ({
+const cardStyles = StyleSheet.create({
     card: {
         borderRadius: 6,
         elevation: 3,

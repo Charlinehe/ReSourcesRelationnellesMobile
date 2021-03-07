@@ -4,6 +4,7 @@ import { EvilIcons } from '@expo/vector-icons';
 import styles from '../style';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { USER_INFO} from "../settings";
+import UserSpaceCard from "../component/userSpaceCard";
 
 export class userSpaceHomeView extends React.Component {
 
@@ -12,7 +13,12 @@ export class userSpaceHomeView extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
-            personalInformations: {},
+            personalInformations: {
+                firstname:"Mimi",
+                lastname:"Siku",
+                mail:"mimi_siku@lipolipo.com",
+                ageCategory:"Enfant"
+            },
             accessToken: ''
         }
     }
@@ -48,6 +54,7 @@ export class userSpaceHomeView extends React.Component {
                         });
                     })
         } catch (e) {
+            console.log(e)
             alert('Impossible de récupérer l\'identifiant. Merci de vous connecter avant d\'accéder à cette page')
         }
     }
@@ -60,12 +67,7 @@ export class userSpaceHomeView extends React.Component {
                 </View>
                 <View style={styles.userSpaceUserInfo}>
                     <Text style={styles.userSpaceTitle}>Informations Personnelles</Text>
-                </View>
-                <View>
-                    <Text>Siku</Text>
-                    <Text>Mimi</Text>
-                    <Text>mimi_siku@lipolipo.com</Text>
-                    <Text>Enfant</Text>
+                    <UserSpaceCard user={this.state.personalInformations}/>
                 </View>
             </View>
         )
