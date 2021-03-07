@@ -198,12 +198,17 @@ const styles = StyleSheet.create({
         backgroundColor: blue
     },
     userSpaceUserInfo: {
-        flex: 0.5,
-        margin: '2%'
+        flex: 0.3,
+        margin: '2%',
+        marginBottom: '5%'
     },
     userSpaceTitle: {
         fontSize: 20, 
         fontWeight: 'bold'
+    },
+    userSpaceCreatedResources: {
+        margin: '2%',
+        flex: 0.5
     },
 
     // COMPONENT

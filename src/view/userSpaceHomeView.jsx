@@ -1,10 +1,11 @@
 import React from 'react';
-import { ActivityIndicator, Text, View } from 'react-native';
+import {ActivityIndicator, FlatList, ScrollView, Text, View} from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
 import styles from '../style';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { USER_INFO} from "../settings";
+import { USER_INFO, PUBLIC_RESOURCES } from "../settings";
 import UserSpaceCard from "../component/userSpaceCard";
+import HomeCard from "../component/homeCard";
 
 export class userSpaceHomeView extends React.Component {
 
@@ -19,13 +20,15 @@ export class userSpaceHomeView extends React.Component {
                 mail:"mimi_siku@lipolipo.com",
                 ageCategory:"Enfant"
             },
-            accessToken: ''
+            accessToken: '',
+            createdResources: []
         }
     }
 
 
     componentDidMount() {
         this.getPersonalInformation();
+        this.getCreatedResources();
     }
 
     getPersonalInformation = async() => {
@@ -40,7 +43,6 @@ export class userSpaceHomeView extends React.Component {
                 .then((response) => response.json())
                 .then(
                     (data) => {
-                        console.log('recup info')
                         this.setState({
                             isLoaded: true,
                             personalInformations: data
@@ -55,8 +57,38 @@ export class userSpaceHomeView extends React.Component {
                     })
         } catch (e) {
             console.log(e)
-            alert('Impossible de récupérer l\'identifiant. Merci de vous connecter avant d\'accéder à cette page')
+            //alert('Impossible de récupérer l\'identifiant. Merci de vous connecter avant d\'accéder à cette page')
         }
+    }
+
+    getCreatedResources() {
+        //L'appel de ce service est provisoire (permet de donner un visuel pour la présentation)
+        fetch(PUBLIC_RESOURCES, {
+            method: 'GET',
+            headers: {
+                limit: 3,
+                page: 4
+            }
+        })
+            .then((response) => response.json())
+            .then(
+                (data) => {
+                    this.setState({
+                        isLoaded: true,
+                        createdResources: data
+                    })
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
+    }
+
+    _displayResourceDetail = (idResource) => {
+        this.props.navigation.navigate('ResourceDetail', {id: idResource})
     }
 
     render() {
@@ -68,6 +100,19 @@ export class userSpaceHomeView extends React.Component {
                 <View style={styles.userSpaceUserInfo}>
                     <Text style={styles.userSpaceTitle}>Informations Personnelles</Text>
                     <UserSpaceCard user={this.state.personalInformations}/>
+                </View>
+                <View style={styles.userSpaceCreatedResources}>
+                    <Text style={styles.userSpaceTitle}>Ressources créées</Text>
+                    <ScrollView style={styles.resourceScrollView}>
+                        <FlatList
+                            //style={styles.flatlist}
+                            data={this.state.createdResources}
+                            keyExtractor={item => item.id.toString()}
+                            renderItem={({ item }) => (
+                                <HomeCard title={item.title} type={item.relationship_type} description={item.description} displayResourceDetail={this._displayResourceDetail} id={item.id} />
+                            )}
+                        />
+                    </ScrollView>
                 </View>
             </View>
         )
