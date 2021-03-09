@@ -24,13 +24,19 @@ export default function HomeCard(props) {
                 <View style={cardStyles.cardDetail}>
                     <View style={cardStyles.row}>
                         <Text style={cardStyles.title}>{props.title.toUpperCase()}</Text>
-                        <FontAwesome name="heart" size={20} color="red" />
+                        {displayHeart(props.id)}
                     </View>
                     <Text style={cardStyles.content}>{((props.description).length > maxDescriptonChar) ? (props.description).substr(0, maxDescriptonChar - 3) + "..." : props.description}</Text>
                 </View>
             </View>
         </Pressable>
     )
+}
+
+function displayHeart(id) {
+    if (id % 15 === 0) {
+        return <FontAwesome name="heart" size={20} color="red" />
+    }
 }
 
 const cardStyles = StyleSheet.create({
