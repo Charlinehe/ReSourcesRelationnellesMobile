@@ -61,6 +61,7 @@ export default class LoginView extends React.Component {
                     <TextInput
                         style={styles.loginInput}
                         placeholder='Mot de passe'
+                        secureTextEntry={true}
                         onChangeText={(password) => this.setState({ password })}
                     />
                 </View>

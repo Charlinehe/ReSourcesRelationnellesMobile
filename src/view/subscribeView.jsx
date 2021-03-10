@@ -13,11 +13,13 @@ export class SubscribeView extends React.Component {
                     />
                     <TextInput
                         style={styles.loginInput}
+                        secureTextEntry={true}
                         placeholder='Mot de passe'
                         textContentType='password'
                     />
                     <TextInput
                         style={styles.loginInput}
+                        secureTextEntry={true}
                         placeholder='Confirmation du mot de passe'
                         textContentType='password'
                     />
